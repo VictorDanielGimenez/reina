@@ -1088,7 +1088,7 @@
  <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="true" target-schema="public"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
- <play-pen zoom="1.0" viewportX="0" viewportY="41" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
+ <play-pen zoom="1.0" viewportX="57" viewportY="41" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
   <table-pane table-ref="TAB1" x="20" y="13" bgColor="0xf0f0f0" fgColor="0xab8b00" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB6" x="234" y="8" bgColor="0xf0f0f0" fgColor="0xab8b00" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB15" x="22" y="97" bgColor="0xf0f0f0" fgColor="0xab8b00" rounded="false" dashed="false"/>
