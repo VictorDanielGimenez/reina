@@ -26,12 +26,10 @@ public class CiudadDAO implements CiudadINT {
     @Override
     public Boolean agregar(CiudadDTO dto) {
         try {
-            sql = "INSERT INTO ciudad (cod_ciudad, descripcion)\n"
-                    + "VALUES ((select coalesce (max(cod_ciudad),0)+1 from ciudad), ?);";
+            sql = "INSERT INTO `ciudad` (`ciu_descri`) VALUES (?);";
             System.out.println(sql);
             ps = conexion.getConnection().prepareStatement(sql);
-//            ps.setInt(1, dto.getCod_ciudad());
-            ps.setString(1, dto.getDescripcion().toUpperCase());
+            ps.setString(1, dto.getCiu_descri().toUpperCase());
             System.out.println(ps);
             return ps.executeUpdate() > 0;
         } catch (SQLException ex) {
@@ -43,14 +41,11 @@ public class CiudadDAO implements CiudadINT {
     @Override
     public Boolean modificar(CiudadDTO dto) {
         try {
-            sql = "UPDATE ciudad\n"
-                    + "SET descripcion=?\n"
-                    + "WHERE cod_ciudad=?;";
-            System.out.println(sql);
+            sql = "UPDATE `ciudad` SET `ciu_descri`=? WHERE `id_ciudad`=?;";
             ps = conexion.getConnection().prepareStatement(sql);
+            ps.setString(1, dto.getCiu_descri().toUpperCase());
+            ps.setInt(2, dto.getId_ciudad());
             System.out.println(ps);
-            ps.setString(1, dto.getDescripcion().toUpperCase());
-            ps.setInt(2, dto.getCod_ciudad());
             return ps.executeUpdate() > 0;
         } catch (SQLException ex) {
             msg = ex.getMessage();
@@ -59,14 +54,12 @@ public class CiudadDAO implements CiudadINT {
     }
 
     @Override
-    public Boolean eliminar(CiudadDTO dto) {
-        try {
-            sql = "DELETE FROM ciudad\n"
-                    + "WHERE cod_ciudad=?;";
-//            System.out.println(sql);
+    public Boolean eliminar(CiudadDTO dto) {       
+         try {
+            sql = "DELETE FROM `ciudad` WHERE `id_ciudad`=?;";
+            System.out.println(sql);
             ps = conexion.getConnection().prepareStatement(sql);
-//            System.out.println(ps);
-            ps.setInt(1, dto.getCod_ciudad());
+            ps.setInt(1, dto.getId_ciudad());
             System.out.println(ps);
             return ps.executeUpdate() > 0;
         } catch (SQLException ex) {
@@ -77,18 +70,17 @@ public class CiudadDAO implements CiudadINT {
 
     @Override
     public List<CiudadDTO> seleccionarTodos() {
-        try {
+       try {
             List<CiudadDTO> lista;
             CiudadDTO dto;
-            sql = "SELECT cod_ciudad, descripcion\n"
-                    + "  FROM ciudad ORDER BY cod_ciudad ASC;";
+            sql = "SELECT `id_ciudad`,`ciu_descri` FROM `ciudad`;";
             ps = conexion.getConnection().prepareStatement(sql);
             rs = ps.executeQuery();
             lista = new ArrayList<>();
             while (rs.next()) {
                 dto = new CiudadDTO();
-                dto.setCod_ciudad(rs.getInt("cod_ciudad"));
-                dto.setDescripcion(rs.getString("descripcion"));
+                dto.setId_ciudad(rs.getInt("id_ciudad"));
+                dto.setCiu_descri(rs.getString("ciu_descri"));
                 lista.add(dto);
             }
             return lista;
@@ -100,43 +92,21 @@ public class CiudadDAO implements CiudadINT {
 
     @Override
     public List<CiudadDTO> seleccionarSegunFiltro(CiudadDTO dto) {
-        try {
-            List<CiudadDTO> lista;
-            CiudadDTO dtoLocal;
-            sql = "SELECT cod_ciudad, descripcion\n"
-                    + "FROM ciudad"
-                    + "WHERE cod_ciudad=? and descripcion= ?;";
-            ps = conexion.getConnection().prepareStatement(sql);
-            ps.setInt(1, dto.getCod_ciudad());
-            ps.setString(2, dto.getDescripcion());
-            rs = ps.executeQuery();
-            lista = new ArrayList<>();
-            while (rs.next()) {
-                dtoLocal = new CiudadDTO();
-                dtoLocal.setCod_ciudad(rs.getInt("cod_ciudad"));
-                dtoLocal.setDescripcion(rs.getString("descripcion"));
-                lista.add(dtoLocal);
-            }
-            return lista;
-        } catch (SQLException ex) {
-            msg = ex.getMessage();
-            return null;
-        }
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public CiudadDTO seleccionarSegunId(CiudadDTO dto) {
         try {
             CiudadDTO dtoLocal = null;
-            sql = "SELECT cod_ciudad, descripcion FROM ciudad WHERE cod_ciudad=?;";
+            sql = "SELECT `id_ciudad`,`ciu_descri` FROM `ciudad` WHERE `id_ciudad`=?;";
             ps = conexion.getConnection().prepareStatement(sql);
-            ps.setInt(1, dto.getCod_ciudad());
-            System.out.println(ps);
+            ps.setInt(1, dto.getId_ciudad());
             rs = ps.executeQuery();
             if (rs.next()) {
                 dtoLocal = new CiudadDTO();
-                dtoLocal.setCod_ciudad(rs.getInt("cod_ciudad"));
-                dtoLocal.setDescripcion(rs.getString("descripcion"));
+                dtoLocal.setId_ciudad(rs.getInt("id_ciudad"));
+                dtoLocal.setCiu_descri(rs.getString("ciu_descri"));
             }
             return dtoLocal;
         } catch (SQLException ex) {
@@ -144,4 +114,6 @@ public class CiudadDAO implements CiudadINT {
             return null;
         }
     }
+
+   
 }

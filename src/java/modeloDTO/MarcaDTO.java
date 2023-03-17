@@ -2,33 +2,24 @@ package modeloDTO;
 
 public class MarcaDTO {
 
-    private Integer cod_marca;
-    private String descripcion;
-    private String simbolo;
+    private Integer id_marca;
+    private String marca_descri;   
     private Integer bandera;
 
-    public String getSimbolo() {
-        return simbolo;
+    public Integer getId_marca() {
+        return id_marca;
     }
 
-    public void setSimbolo(String simbolo) {
-        this.simbolo = simbolo;
+    public void setId_marca(Integer id_marca) {
+        this.id_marca = id_marca;
     }
 
-    public Integer getCod_marca() {
-        return cod_marca;
+    public String getMarca_descri() {
+        return marca_descri;
     }
 
-    public void setCod_marca(Integer cod_marca) {
-        this.cod_marca = cod_marca;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setMarca_descri(String marca_descri) {
+        this.marca_descri = marca_descri;
     }
 
     public Integer getBandera() {
@@ -38,5 +29,7 @@ public class MarcaDTO {
     public void setBandera(Integer bandera) {
         this.bandera = bandera;
     }
+
+    
 
 }

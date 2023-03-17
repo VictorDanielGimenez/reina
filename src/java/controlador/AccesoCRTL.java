@@ -1,4 +1,4 @@
-package Controlador;
+package controlador;
 
 import modeloDAO.UsuarioDAO;
 import modeloDTO.UsuarioDTO;
@@ -11,31 +11,20 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modeloDAO.AccesoDAO;
+import modeloDTO.AccesoDTO;
 
 public class AccesoCRTL extends HttpServlet {
 
     private String json;
     private PrintWriter out;
     private Gson gson;
-    private UsuarioDTO usuarioDTO;
-    private UsuarioDAO usuarioDAO;
-
-    private String bloqueArchivo, bloquePersonas, bloqueArticulos, bloqueCompra,
-            bloqueFacturacion, bloqueServicio, bloqueEmbarcaciones, bloqueVarios, bloqueOpciones, bloqueAyuda, bloqueSalir;
+    private AccesoDAO accesoDAO;
+    private AccesoDTO accesoDTO;
 
     public AccesoCRTL() {
         json = "";
-        bloqueArchivo = "";
-        bloquePersonas = "";
-        bloqueArticulos = "";
-        bloqueCompra = "";
-        bloqueFacturacion = "";
-        bloqueServicio = "";
-        bloqueEmbarcaciones = "";
-        bloqueVarios = "";
-        bloqueOpciones = "";
-        bloqueAyuda = "";
-        bloqueSalir = "";
+    
     }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -47,34 +36,32 @@ public class AccesoCRTL extends HttpServlet {
         if (br.ready()) {
             json = br.readLine();
         }
-        System.out.println("Json c/ tres datos " + json);
+        System.out.println("Json c/ TRES datos " + json);
         gson = new Gson();
-        usuarioDTO = gson.fromJson(json, UsuarioDTO.class);
-        System.out.println("Exitoso " + usuarioDTO.getUsuemail());
-        System.out.println("Exitoso " + usuarioDTO.getUsu_clave());
-        usuarioDAO = new UsuarioDAO();
-        System.out.println("id estado " + usuarioDAO.getPermiso(usuarioDTO));
-        switch (usuarioDAO.getPermiso(usuarioDTO)) {
-            case 1: //SUPER
-                out.println(bloqueArchivo + bloquePersonas + bloqueArticulos + bloqueCompra + bloqueFacturacion + bloqueServicio + bloqueEmbarcaciones + bloqueVarios + bloqueOpciones + bloqueAyuda + bloqueSalir);
-                out.close();
+        accesoDTO = gson.fromJson(json, AccesoDTO.class);      
+        System.out.println("Exitoso " + accesoDTO.getEmail());
+        System.out.println("Exitoso " + accesoDTO.getClave());
+        System.out.println("Exitoso " + accesoDTO.getBandera());
+        accesoDAO = new AccesoDAO();        
+        switch (accesoDTO.getBandera()) {
+            case 1:
+                if (accesoDAO.CerrarSession(accesoDTO) ) {
+                    System.out.println("ssss");
+                    out.println("1");
+                } else {
+                      System.out.println("ggggg");
+                    out.println("0");
+                }
                 break;
-            case 2: //USER_FACT
-                out.println(bloqueFacturacion + bloqueVarios + bloqueAyuda + bloqueSalir);
-                out.close();
-                break;
-            case 3: //USER_COMP
-                out.println(bloqueArticulos + bloqueCompra + bloqueAyuda + bloqueSalir);
-                out.close();
-                break;
-            case 4: //USER_SERV
-                out.println(bloqueServicio + bloqueEmbarcaciones + bloqueAyuda + bloqueSalir);
-                out.close();
-                break;
-            case 5: // ADMIN
-                out.println(bloqueArchivo + bloqueAyuda + bloqueSalir);
-                out.close();
-                break;
+           case 2:
+              if (accesoDAO.validarUsuario(accesoDTO)) {
+               out.println("1");
+              } else {
+                   out.println("2");
+              }
+              break;            
+            
+         
         }
 
     }

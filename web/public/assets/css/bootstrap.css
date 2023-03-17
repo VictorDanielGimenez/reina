@@ -17,7 +17,7 @@
   --bs-cyan: #17a2b8;
   --bs-white: #fff;
   --bs-gray: #6c757d;
-  --bs-gray-dark: #343a40;
+  --bs-gray-dark: #ba68c8;
   --bs-primary: #0d6efd;
   --bs-secondary: #6c757d;
   --bs-success: #28a745;
@@ -25,7 +25,7 @@
   --bs-warning: #ffc107;
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
-  --bs-dark: #343a40;
+  --bs-dark: #ba68c8;
   --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
@@ -1875,7 +1875,7 @@ progress {
 }
 
 .table-dark {
-  --bs-table-bg: #343a40;
+  --bs-table-bg: #ba68c8;
   --bs-table-striped-bg: #3e444a;
   --bs-table-striped-color: #fff;
   --bs-table-active-bg: #484e53;
@@ -3097,8 +3097,8 @@ fieldset:disabled .btn {
 
 .btn-dark {
   color: #fff;
-  background-color: #343a40;
-  border-color: #343a40;
+  background-color: #ba68c8;
+  border-color: #ba68c8;
 }
 
 .btn-dark:hover {
@@ -3130,8 +3130,8 @@ fieldset:disabled .btn {
 
 .btn-dark:disabled, .btn-dark.disabled {
   color: #fff;
-  background-color: #343a40;
-  border-color: #343a40;
+  background-color: #ba68c8;
+  border-color: #ba68c8;
 }
 
 .btn-outline-primary {
@@ -3359,14 +3359,14 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-dark {
-  color: #343a40;
-  border-color: #343a40;
+  color: #ba68c8;
+  border-color: #ba68c8;
 }
 
 .btn-outline-dark:hover {
   color: #fff;
-  background-color: #343a40;
-  border-color: #343a40;
+  background-color: #ba68c8;
+  border-color: #ba68c8;
 }
 
 .btn-check:focus + .btn-outline-dark, .btn-outline-dark:focus {
@@ -3376,8 +3376,8 @@ fieldset:disabled .btn {
 .btn-check:checked + .btn-outline-dark,
 .btn-check:active + .btn-outline-dark, .btn-outline-dark:active, .btn-outline-dark.active, .btn-outline-dark.dropdown-toggle.show {
   color: #fff;
-  background-color: #343a40;
-  border-color: #343a40;
+  background-color: #ba68c8;
+  border-color: #ba68c8;
 }
 
 .btn-check:checked + .btn-outline-dark:focus,
@@ -3386,7 +3386,7 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-dark:disabled, .btn-outline-dark.disabled {
-  color: #343a40;
+  color: #ba68c8;
   background-color: transparent;
 }
 
@@ -6074,7 +6074,7 @@ button.close {
 }
 
 .link-dark {
-  color: #343a40;
+  color: #ba68c8;
 }
 
 .link-dark:hover, .link-dark:focus {
@@ -6402,7 +6402,7 @@ button.close {
 }
 
 .border-dark {
-  border-color: #343a40 !important;
+  border-color: #ba68c8 !important;
 }
 
 .border-white {
@@ -7108,7 +7108,7 @@ button.close {
 }
 
 .text-dark {
-  color: #343a40 !important;
+  color: #ba68c8 !important;
 }
 
 .text-white {
@@ -7180,7 +7180,7 @@ button.close {
 }
 
 .bg-dark {
-  background-color: #343a40 !important;
+  background-color: #ba68c8 !important;
 }
 
 .bg-body {

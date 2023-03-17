@@ -3,7 +3,7 @@ package modeloDTO;
 
 public class AccesoDTO {
     private Integer bandera;
-    private String usuario;
+    private String email;
     private String clave;
 
     public Integer getBandera() {
@@ -14,12 +14,12 @@ public class AccesoDTO {
         this.bandera = bandera;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getClave() {
@@ -29,4 +29,6 @@ public class AccesoDTO {
     public void setClave(String clave) {
         this.clave = clave;
     }
+
+    
 }

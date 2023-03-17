@@ -2,25 +2,24 @@ package modeloDTO;
 
 public class ImpuestoDTO {
 
-    private Integer cod_impuesto;
-    private String descripcion;
-    private String porcentaje;
+    private Integer id_impuesto;
+    private String imp_descri;
     private Integer bandera;
 
-    public Integer getCod_impuesto() {
-        return cod_impuesto;
+    public Integer getId_impuesto() {
+        return id_impuesto;
     }
 
-    public void setCod_impuesto(Integer cod_impuesto) {
-        this.cod_impuesto = cod_impuesto;
+    public void setId_impuesto(Integer id_impuesto) {
+        this.id_impuesto = id_impuesto;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getImp_descri() {
+        return imp_descri;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setImp_descri(String imp_descri) {
+        this.imp_descri = imp_descri;
     }
 
     public Integer getBandera() {
@@ -31,11 +30,5 @@ public class ImpuestoDTO {
         this.bandera = bandera;
     }
 
-    public String getPorcentaje() {
-        return porcentaje;
-    }
-
-    public void setPorcentaje(String porcentaje) {
-        this.porcentaje = porcentaje;
-    }
+   
 }

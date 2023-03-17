@@ -3,10 +3,98 @@
     <servlet>
         <servlet-name>AccesoCRTL</servlet-name>
         <servlet-class>controlador.AccesoCRTL</servlet-class>
-    </servlet>   
+    </servlet>
+    <servlet>
+        <servlet-name>CiudadCRTL</servlet-name>
+        <servlet-class>controlador.CiudadCRTL</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DepositoCRTL</servlet-name>
+        <servlet-class>controlador.DepositoCRTL</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PedidoCRTL</servlet-name>
+        <servlet-class>controlador.PedidoCRTL</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UsuarioCRTL</servlet-name>
+        <servlet-class>controlador.UsuarioCRTL</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ClienteCRTL</servlet-name>
+        <servlet-class>controlador.ClienteCRTL</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MarcaCRTL</servlet-name>
+        <servlet-class>controlador.MarcaCRTL</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProveedorCRTL</servlet-name>
+        <servlet-class>controlador.ProveedorCRTL</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ArticuloCRTL</servlet-name>
+        <servlet-class>controlador.ArticuloCRTL</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ImpuestoCRTL</servlet-name>
+        <servlet-class>controlador.ImpuestoCRTL</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CompraCRTL</servlet-name>
+        <servlet-class>controlador.CompraCRTL</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrdenCRTL</servlet-name>
+        <servlet-class>controlador.OrdenCRTL</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AccesoCRTL</servlet-name>
         <url-pattern>/AccesoCRTL</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CiudadCRTL</servlet-name>
+        <url-pattern>/CiudadCRTL</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DepositoCRTL</servlet-name>
+        <url-pattern>/DepositoCRTL</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PedidoCRTL</servlet-name>
+        <url-pattern>/PedidoCRTL</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsuarioCRTL</servlet-name>
+        <url-pattern>/UsuarioCRTL</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ClienteCRTL</servlet-name>
+        <url-pattern>/ClienteCRTL</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MarcaCRTL</servlet-name>
+        <url-pattern>/MarcaCRTL</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProveedorCRTL</servlet-name>
+        <url-pattern>/ProveedorCRTL</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ArticuloCRTL</servlet-name>
+        <url-pattern>/ArticuloCRTL</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ImpuestoCRTL</servlet-name>
+        <url-pattern>/ImpuestoCRTL</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CompraCRTL</servlet-name>
+        <url-pattern>/CompraCRTL</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrdenCRTL</servlet-name>
+        <url-pattern>/OrdenCRTL</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

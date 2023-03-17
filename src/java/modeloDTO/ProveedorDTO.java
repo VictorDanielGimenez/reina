@@ -2,87 +2,79 @@ package modeloDTO;
 
 public class ProveedorDTO {
 
-    private Integer nro_proveedor;
-    private String razon_social;
-    private String ruc;
-    private String telefono;
-    private String direccion;
-    private Integer cod_ciudad;
-    private String descripcion_ciudad;
-    private Integer cod_nacionalidad;
-    private String descripcion_nacionalidad;
+
+    private Integer id_proveedor;
+    private Integer id_ciudad;
+    private String ciu_descri;
+    private String prov_razons;
+    private String prov_ruc;
+    private String prov_te; 
+    private String prov_direc;
+    private String prov_correo;
     private Integer bandera;
 
-    public Integer getNro_proveedor() {
-        return nro_proveedor;
+    public Integer getId_proveedor() {
+        return id_proveedor;
     }
 
-    public void setNro_proveedor(Integer nro_proveedor) {
-        this.nro_proveedor = nro_proveedor;
+    public void setId_proveedor(Integer id_proveedor) {
+        this.id_proveedor = id_proveedor;
     }
 
-    public String getRazon_social() {
-        return razon_social;
+    public Integer getId_ciudad() {
+        return id_ciudad;
     }
 
-    public void setRazon_social(String razon_social) {
-        this.razon_social = razon_social;
+    public void setId_ciudad(Integer id_ciudad) {
+        this.id_ciudad = id_ciudad;
     }
 
-    public String getRuc() {
-        return ruc;
+    public String getCiu_descri() {
+        return ciu_descri;
     }
 
-    public void setRuc(String ruc) {
-        this.ruc = ruc;
-    }
-    
-     public String getTelefono() {
-        return telefono;
+    public void setCiu_descri(String ciu_descri) {
+        this.ciu_descri = ciu_descri;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public String getProv_razons() {
+        return prov_razons;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public void setProv_razons(String prov_razons) {
+        this.prov_razons = prov_razons;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public String getProv_ruc() {
+        return prov_ruc;
     }
 
-    public Integer getCod_ciudad() {
-        return cod_ciudad;
+    public void setProv_ruc(String prov_ruc) {
+        this.prov_ruc = prov_ruc;
     }
 
-    public void setCod_ciudad(Integer cod_ciudad) {
-        this.cod_ciudad = cod_ciudad;
+    public String getProv_te() {
+        return prov_te;
     }
 
-    public String getDescripcion_ciudad() {
-        return descripcion_ciudad;
+    public void setProv_te(String prov_te) {
+        this.prov_te = prov_te;
     }
 
-    public void setDescripcion_ciudad(String descripcion_ciudad) {
-        this.descripcion_ciudad = descripcion_ciudad;
+    public String getProv_direc() {
+        return prov_direc;
     }
 
-    public Integer getCod_nacionalidad() {
-        return cod_nacionalidad;
+    public void setProv_direc(String prov_direc) {
+        this.prov_direc = prov_direc;
     }
 
-    public void setCod_nacionalidad(Integer cod_nacionalidad) {
-        this.cod_nacionalidad = cod_nacionalidad;
+    public String getProv_correo() {
+        return prov_correo;
     }
 
-    public String getDescripcion_nacionalidad() {
-        return descripcion_nacionalidad;
-    }
-
-    public void setDescripcion_nacionalidad(String descripcion_nacionalidad) {
-        this.descripcion_nacionalidad = descripcion_nacionalidad;
+    public void setProv_correo(String prov_correo) {
+        this.prov_correo = prov_correo;
     }
 
     public Integer getBandera() {
@@ -92,5 +84,9 @@ public class ProveedorDTO {
     public void setBandera(Integer bandera) {
         this.bandera = bandera;
     }
+    
+    
+
+    
 
 }

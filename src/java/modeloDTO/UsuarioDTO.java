@@ -9,6 +9,8 @@ public class UsuarioDTO {
     private String usu_clave;
     private Integer id_estado;
     private String estado;
+    private String primernombre;
+    private String primerapellido;
     
     private Integer bandera;
 
@@ -69,6 +71,24 @@ public class UsuarioDTO {
     public void setBandera(Integer bandera) {
         this.bandera = bandera;
     }
+
+    public String getPrimernombre() {
+        return primernombre;
+    }
+
+    public void setPrimernombre(String primernombre) {
+        this.primernombre = primernombre;
+    }
+
+    public String getPrimerapellido() {
+        return primerapellido;
+    }
+
+    public void setPrimerapellido(String primerapellido) {
+        this.primerapellido = primerapellido;
+    }
+
+    
     
     
 

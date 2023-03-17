@@ -3,12 +3,9 @@ package modeloDTO;
 public class CiudadDTO {
 
     private Integer bandera;
-    private Integer cod_ciudad;
-    private String descripcion;
+    private Integer id_ciudad;
+    private String ciu_descri;
 
-    //set = Asignación
-    //get = Recuperación
-    
     public Integer getBandera() {
         return bandera;
     }
@@ -17,20 +14,24 @@ public class CiudadDTO {
         this.bandera = bandera;
     }
 
-    public Integer getCod_ciudad() {
-        return cod_ciudad;
+    public Integer getId_ciudad() {
+        return id_ciudad;
     }
 
-    public void setCod_ciudad(Integer cod_ciudad) {
-        this.cod_ciudad = cod_ciudad;
+    public void setId_ciudad(Integer id_ciudad) {
+        this.id_ciudad = id_ciudad;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getCiu_descri() {
+        return ciu_descri;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setCiu_descri(String ciu_descri) {
+        this.ciu_descri = ciu_descri;
     }
+    
+    
 
+    
+    
 }

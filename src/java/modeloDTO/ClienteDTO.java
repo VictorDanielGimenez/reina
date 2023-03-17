@@ -2,87 +2,15 @@ package modeloDTO;
 
 public class ClienteDTO {
 
-    private Integer cod_cliente;
-    private String razon_social;
-    private String ruc;
-    private String direccion;
-    private String telefono;
-    private String descripcion_ciudad;
-    private Integer cod_ciudad;
-    private Integer cod_nacionalidad;
-    private String descripcion_nacionalidad;
-
-    public Integer getCod_cliente() {
-        return cod_cliente;
-    }
-
-    public void setCod_cliente(Integer cod_cliente) {
-        this.cod_cliente = cod_cliente;
-    }
-
-    public String getRazon_social() {
-        return razon_social;
-    }
-
-    public void setRazon_social(String razon_social) {
-        this.razon_social = razon_social;
-    }
-
-    public String getRuc() {
-        return ruc;
-    }
-
-    public void setRuc(String ruc) {
-        this.ruc = ruc;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getDescripcion_ciudad() {
-        return descripcion_ciudad;
-    }
-
-    public void setDescripcion_ciudad(String descripcion_ciudad) {
-        this.descripcion_ciudad = descripcion_ciudad;
-    }
-
-    public Integer getCod_ciudad() {
-        return cod_ciudad;
-    }
-
-    public void setCod_ciudad(Integer cod_ciudad) {
-        this.cod_ciudad = cod_ciudad;
-    }
-
-    public Integer getCod_nacionalidad() {
-        return cod_nacionalidad;
-    }
-
-    public void setCod_nacionalidad(Integer cod_nacionalidad) {
-        this.cod_nacionalidad = cod_nacionalidad;
-    }
-
-    public String getDescripcion_nacionalidad() {
-        return descripcion_nacionalidad;
-    }
-
-    public void setDescripcion_nacionalidad(String descripcion_nacionalidad) {
-        this.descripcion_nacionalidad = descripcion_nacionalidad;
-    }
+    private Integer bandera;
+    private Integer id_cliente;
+    private String cli_nombre;
+    private String cli_ruc;
+    private String cli_ci;
+    private String cli_direc;
+    private String cli_telef;
+    private String ciu_descri;
+    private Integer id_ciudad;
 
     public Integer getBandera() {
         return bandera;
@@ -91,5 +19,72 @@ public class ClienteDTO {
     public void setBandera(Integer bandera) {
         this.bandera = bandera;
     }
-    private Integer bandera;
+
+    public Integer getId_cliente() {
+        return id_cliente;
+    }
+
+    public void setId_cliente(Integer id_cliente) {
+        this.id_cliente = id_cliente;
+    }
+
+    public String getCli_nombre() {
+        return cli_nombre;
+    }
+
+    public void setCli_nombre(String cli_nombre) {
+        this.cli_nombre = cli_nombre;
+    }
+
+    public String getCli_ruc() {
+        return cli_ruc;
+    }
+
+    public void setCli_ruc(String cli_ruc) {
+        this.cli_ruc = cli_ruc;
+    }
+
+    public String getCli_ci() {
+        return cli_ci;
+    }
+
+    public void setCli_ci(String cli_ci) {
+        this.cli_ci = cli_ci;
+    }
+
+    public String getCli_direc() {
+        return cli_direc;
+    }
+
+    public void setCli_direc(String cli_direc) {
+        this.cli_direc = cli_direc;
+    }
+
+    public String getCli_telef() {
+        return cli_telef;
+    }
+
+    public void setCli_telef(String cli_telef) {
+        this.cli_telef = cli_telef;
+    }
+
+    public String getCiu_descri() {
+        return ciu_descri;
+    }
+
+    public void setCiu_descri(String ciu_descri) {
+        this.ciu_descri = ciu_descri;
+    }
+
+    public Integer getId_ciudad() {
+        return id_ciudad;
+    }
+
+    public void setId_ciudad(Integer id_ciudad) {
+        this.id_ciudad = id_ciudad;
+    }
+
+   
+    
+    
 }

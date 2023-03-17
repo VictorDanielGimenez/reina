@@ -5,5 +5,6 @@ import modeloDTO.AccesoDTO;
 public interface AccesoINT {
 
     public boolean validarUsuario(AccesoDTO dto); 
+     public boolean CerrarSession(AccesoDTO dto);
 
 }
