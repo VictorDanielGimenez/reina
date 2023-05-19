@@ -18,6 +18,7 @@ public class CompraDTO {
     private Integer id_estado;
     private List<EstadoDTO> EstadoDTO;
     private Integer id_tipodoc;
+    private String tipo_decri;
 
     private Integer id_articulo;
     private Integer det_cant;
@@ -176,6 +177,14 @@ public class CompraDTO {
 
     public void setEstadoDTO(List<EstadoDTO> EstadoDTO) {
         this.EstadoDTO = EstadoDTO;
+    }
+
+    public String getTipo_decri() {
+        return tipo_decri;
+    }
+
+    public void setTipo_decri(String tipo_decri) {
+        this.tipo_decri = tipo_decri;
     }
     
     

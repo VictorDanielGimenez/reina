@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/miguel/NetBeansProjects/reina/src/java/controlador/ArticuloCRTL.java</file>
+            <file>file:/home/miguel/NetBeansProjects/reina/src/java/modeloDTO/OrdenDTO.java</file>
+            <file>file:/home/miguel/NetBeansProjects/reina/src/java/modeloDAO/AccesoDAO.java</file>
+            <file>file:/home/miguel/NetBeansProjects/reina/web/accion/Compra.js</file>
+            <file>file:/home/miguel/NetBeansProjects/reina/src/java/programas/GenerarPDF.java</file>
+            <file>file:/home/miguel/NetBeansProjects/reina/src/java/modeloDAO/OrdenDAO.java</file>
+            <file>file:/home/miguel/NetBeansProjects/reina/src/java/modeloDAO/ArticuloDAO.java</file>
+            <file>file:/home/miguel/NetBeansProjects/reina/src/java/programas/HashMd5.java</file>
+            <file>file:/home/miguel/NetBeansProjects/reina/src/java/controlador/OrdenCRTL.java</file>
+            <file>file:/home/miguel/NetBeansProjects/reina/src/java/modeloDAO/CiudadDAO.java</file>
+            <file>file:/home/miguel/NetBeansProjects/reina/src/java/modeloDAO/UsuarioDAO.java</file>
+            <file>file:/home/miguel/NetBeansProjects/reina/web/accion/Orden.js</file>
+        </group>
     </open-files>
 </project-private>

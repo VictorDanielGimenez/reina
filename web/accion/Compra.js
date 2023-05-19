@@ -34,10 +34,12 @@ $(function () {
   }
   LogUser();
   //
-  function listarProveedor() {
+  
+
+  function listarDocumento() {
     var xhr = new XMLHttpRequest(), //
       method = "POST",
-      url = "/reina/ProveedorCRTL";
+      url = "/reina/CompraCRTL";
     xhr.open(method, url, true);
     xhr.onreadystatechange = function () {
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
@@ -48,25 +50,24 @@ $(function () {
         for (i = 0; i < json.length; i++) {
           valorOption +=
             "<option value=" +
-            json[i].id_proveedor +
+            json[i].id_tipodoc +
             ">" +
-            json[i].prov_razons +
-            " - " +
-            json[i].prov_ruc +
+            json[i].tipo_decri +
             "</option>";
         }
-        document.getElementById("id_proveedor").innerHTML = valorOption;
+        document.getElementById("id_doc").innerHTML = valorOption;
       }
     };
-    xhr.send(JSON.stringify((datos = { bandera: 5 })));
+    xhr.send(JSON.stringify((datos = { bandera: 8 })));
   }
 
-  listarProveedor();
+  listarDocumento(); //
+  
   //
-  function listarPedidos() {
+  function listarOrden() {
     var xhr = new XMLHttpRequest(), //
       method = "POST",
-      url = "/reina/PedidoCRTL";
+      url = "/reina/OrdenCRTL";
     xhr.open(method, url, true);
     xhr.onreadystatechange = function () {
       if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
@@ -76,206 +77,35 @@ $(function () {
         valorOption += "<option value=0>--- Seleccionar ---</option>";
         for (i = 0; i < json.length; i++) {
           //convertir la fecha a formato dd/mm/yyyy
-          var fecha = json[i].ped_fecha;
+          var fecha = json[i].orden_fecha;
           var fecha2 = fecha.split("-");
           var fecha3 = fecha2[2] + "/" + fecha2[1] + "/" + fecha2[0];
 
-          valorOption +=
+       
+         valorOption +=
             "<option value=" +
-            json[i].id_pedidocompra +
+            json[i].id_orden +
             ">" +
-            json[i].id_pedidocompra +
+            json[i].id_orden +
             " - " +
             json[i].usu_nombre +
             " - " +
             fecha3 +
             " - " +
-            json[i].ped_monto +
+            json[i].orden_monto +
             "</option>";
         }
-        document.getElementById("id_pedido").innerHTML = valorOption;
+        document.getElementById("id_orden").innerHTML = valorOption;
       }
     };
-    xhr.send(JSON.stringify((datos = { bandera: 7 })));
+    xhr.send(JSON.stringify((datos = { bandera: 9})));
   }
 
-  listarPedidos();
+  listarOrden();
 
-  //creamos una funcion para traer un json
-  function listar() {
-    var xhr = new XMLHttpRequest(), //
-      method = "POST",
-      url = "/reina/ArticuloCRTL";
-    xhr.open(method, url, true);
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-        //convertimos el json a un array
-        var json = JSON.parse(xhr.responseText);
+ 
 
-        var dataSet = [];
-        for (var i = 0; i < json.length; i++) {
-          dataSet.push([
-            json[i].id_articulo, //0
-            json[i].art_descri,
-            json[i].id_articulo,
-            json[i].id_articulo,
-            json[i].id_articulo,
-          ]); //10
-        }
-        $(document).ready(function () {
-          var table = $("#listadoArticulos").DataTable({
-            data: dataSet,
-            columns: [
-              { title: "ID" },
-              { title: "Articulo" },
-              { title: "Cantidad" },
-              { title: "Precio" },
-              { title: "Acciones" },
-            ],
-            columnDefs: [
-              {
-                targets: 1,
-                data: null,
-                render: function (data, type, row) {
-                  return (
-                    '<input id="articulo_' +
-                    data[0] +
-                    '" value="' +
-                    data[1] +
-                    '"  class="form-control" type="text" readonly />'
-                  );
-                },
-              },
-              {
-                targets: 2,
-                data: null,
-                render: function (data, type, row) {
-                  return (
-                    '<input id="cantidad_' +
-                    data[0] +
-                    '"  class="form-control" type="number" />'
-                  );
-                },
-              },
-              {
-                targets: 3,
-                data: null,
-                render: function (data, type, row) {
-                  return (
-                    '<input id="precio_' +
-                    data[0] +
-                    '" class="form-control" type="number" />'
-                  );
-                },
-              },
-              {
-                targets: 4,
-                data: null,
-                render: function (data, type, row) {
-                  return (
-                    '<button type="button" class="btn btn-success btn-sm" onclick="agregar(' +
-                    data[0] +
-                    ');"><i class="fas fa-plus"></i></button>'
-                  );
-                },
-              },
-            ],
-            language: {
-              decimal: "",
-              emptyTable: "No hay registros en la tabla",
-              info: "Se muestran _START_ a _END_ de _TOTAL_ registros",
-              infoEmpty: "Se muestran 0 a 0 de 0 registros",
-              infoFiltered: "(filtrado de _MAX_ registros totales)",
-              infoPostFix: "",
-              thousands: ",",
-              lengthMenu: "Mostrar _MENU_ registros",
-              loadingRecords: "Cargando...",
-              processing: "Procesando...",
-              search: "Search:",
-              zeroRecords: "No se encontraron registros que coincidan",
-              paginate: {
-                first: "Primero",
-                last: "Último",
-                next: "Siguiente",
-                previous: "Anterior",
-              },
-              aria: {
-                sortAscending: ": activar para ordenar la columna ascendente",
-                sortDescending: ": activar para ordenar la columna descendente",
-              },
-            },
-          });
-        });
-      }
-    };
-    xhr.send(JSON.stringify((datos = { bandera: 5 })));
-  }
-  listar();
 
-  agregar = function (id) {
-    if ($("#precio_" + id).val() == "" || $("#cantidad_" + id).val() == "") {
-      toastr.warning("Favor cargar cantidad y precio.");
-    } else {
-      var tindex;
-      var cod = id;
-      var art = document.getElementById("articulo_" + id).value;
-      var cant = document.getElementById("cantidad_" + id).value;
-      var prec = document.getElementById("precio_" + id).value;
-      var total = 0;
-
-      tindex++;
-
-      //comprobar si ya existe codigo en la tabla para agrupar
-      var existe = false;
-      var cantAnterior = 0;
-
-      $("#listadodetalle tr").each(function () {
-        var codTabla = $(this).find("td").eq(0).html();
-        if (codTabla == cod) {
-          //actualizar cantidad anterior mas la nueva cantidad
-          cantAnterior = $(this).find("td").eq(2).html();
-          cant = parseInt(cantAnterior) + parseInt(cant);
-          prec = parseInt(prec);
-          //borramos el anterior para no tener duplicados
-          $(this).remove();
-          //actualizamos el total
-
-          existe = true;
-        }
-      });
-
-      $("#listadodetalle").append(
-        "<tr id='prod" +
-          tindex +
-          "'>\n\
-            <td for='cod' id='cod' style=' width: 10%;'>" +
-          cod +
-          "</td>\n\
-            <td id='art' style=' width: 40%;'>" +
-          art +
-          "</td>\n\
-            <td id='cant' style=' width: 10%;'>" +
-          cant +
-          "</td>\n\
-            <td id='prec' style=' width: 20%;'>" +
-          prec +
-          "</td>\n\
-            <td style=' width: 5%;'><img class='delete' onclick=\"$('#prod" +
-          tindex +
-          "')\" src='../public/img/delete.png'/></td>\n\
-            </tr>"
-      );
-      limpiarInputMercaderia(cod);
-      //calculamos el subtotal de cada fila
-      for (var i = 0; i < $("#listadodetalle tr").length; i++) {
-        var subtotal =
-          $("#listadodetalle tr:eq(" + i + ") td:eq(2)").text() *
-          $("#listadodetalle tr:eq(" + i + ") td:eq(3)").text();
-        total += subtotal;
-      }
-      $("#total").val(total);
-    }
-  };
   function checkId(cod) {
     console.log(cod);
     let ids = document.querySelectorAll('#listadodetalle td[id="cod"]');
@@ -292,13 +122,22 @@ $(function () {
       $(this).closest("tr").remove();
       //actualizamos el total
       var total = 0;
+      var iva5 = 0;
+      var iva10 = 0;
       for (var i = 0; i < $("#listadodetalle tr").length; i++) {
         var subtotal =
           $("#listadodetalle tr:eq(" + i + ") td:eq(2)").text() *
           $("#listadodetalle tr:eq(" + i + ") td:eq(3)").text();
         total += subtotal;
+        iva5 += $("#listadodetalle tr:eq(" + i + ") td:eq(6)").text();
+        iva10 += $("#listadodetalle tr:eq(" + i + ") td:eq(7)").text();
+        console.log(total);
+        console.log(iva5);
+        console.log(iva10);
       }
       $("#total").val(total);
+      $("#iva5").val(iva5);
+      $("#iva10").val(iva10);
     } else {
       limpiarInputMercaderia();
     }
@@ -318,13 +157,22 @@ $(function () {
         //hacemos un recorrido para separar los datos
         for (i = 0; i < json.length; i++) {
           for (j = 0; j < json[i].length; j++) {
+     
             var tindex;
             var cod = json[i][j].id_articulo;
             var art = json[i][j].art_descri;
             var cant = json[i][j].det_cant;
             var prec = json[i][j].det_precio;
-            var total = 0;
+            var exenta = json[i][j].exenta;
+            var iva5 = json[i][j].iva5;     
+            var iva10 = json[i][j].iva10;     
+            var sub = json[i][j].det_precio * json[i][j].det_cant;
+            var total = 0; 
+         
             tindex++;
+
+            
+            
 
            
 
@@ -344,6 +192,18 @@ $(function () {
             <td id='prec' style=' width: 20%;'>" +
                 prec +
                 "</td>\n\
+                <td id='subtotal' style=' width: 20%;'>" +
+                sub +
+                "</td>\n\
+                <td id='exenta' style=' width: 20%;'>" +
+                exenta +
+                "</td>\n\
+                <td id='iva5' style=' width: 20%;'>" +
+                iva5 +
+                "</td>\n\
+                <td id='iva10' style=' width: 20%;'>" +
+                iva10 +
+                "</td>\n\
             <td style=' width: 5%;'><img class='delete' onclick=\"$('#prod" +
                 tindex +
                 "')\" src='../public/img/delete.png'/></td>\n\
@@ -357,18 +217,74 @@ $(function () {
         var subtotal =
           $("#listadodetalle tr:eq(" + i + ") td:eq(2)").text() *
           $("#listadodetalle tr:eq(" + i + ") td:eq(3)").text();
-        total += subtotal;
+        total += subtotal;  
+            
       }
       $("#total").val(total);
+  
+
+      
+      
       
       }
     };
-    xhr.send(JSON.stringify((datos = { bandera: 7, id_pedidocompra: codigo })));
+    xhr.send(JSON.stringify((datos = { bandera: 8, id_orden: codigo })));
   }
 
-  $("#id_pedido").on("change", function () {
-    var id = $(this).val();
+  function mostrarProveedor(codigo) {
+    var xhr = new XMLHttpRequest(),
+      method = "POST",
+      url = "/reina/OrdenCRTL";
+    xhr.open(method, url, true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+        $("#id_proveedor").val();
+        $("#proveedor").val();
+        var json = JSON.parse(xhr.responseText);
+
+
+        //hacemos un recorrido para separar los datos
+        for (i = 0; i < json.length; i++) {
+          for (j = 0; j < json[i].length; j++) {
+     
+            var id_proveedor = json[i][j].id_proveedor;
+            var proveedor = json[i][j].proveedor;
+
+            $("#id_proveedor").val(id_proveedor);
+            $("#proveedor").val(proveedor);
+                      
+          }
+        }
+      
+      
+      
+      }
+    };
+    xhr.send(JSON.stringify((datos = { bandera: 4, id_orden: codigo })));
+  }
+
+  $("#id_orden").on("change", function () {
+    var id = $(this).val();   
+    mostrarProveedor(id);
     mostrarSolicitud_Compra(id);
+    
+
+  });
+  
+  $("#id_doc").on("change", function () {
+    var id = $(this).val();    
+    if (id == 2) {
+      $("#div_cuota").show();
+      $("#div_intervalo").show();
+       $("#cuota").val();
+      $("#intervalo").val();
+    } else {
+      $("#div_cuota").hide();
+      $("#div_intervalo").hide();
+      $("#cuota").val(0);
+      $("#intervalo").val(0);
+    }
+   
   });
 
   procesarJSON = function () {

@@ -345,8 +345,8 @@
                           <select
                             class="form-control select2 select2-danger"
                             data-dropdown-css-class="select2-danger"
-                            name="id_pedido"
-                            id="id_pedido"
+                            name="id_orden"
+                            id="id_orden"
                           ></select>
                         </div>
                       </div>
@@ -354,12 +354,19 @@
                         <label>Proveedor</label>
 
                         <div class="input-group">
-                          <select
-                            class="form-control select2 select2-danger"
-                            data-dropdown-css-class="select2-danger"
-                            name="id_proveedor"
+                          <input
+                            type="hidden"
                             id="id_proveedor"
-                          ></select>
+                            name="id_proveedor"
+                            class="form-control"
+                          />
+                          <input
+                            type="text"
+                            id="proveedor"
+                            name="proveedor"
+                            class="form-control"
+                            disabled=""
+                          />
                         </div>
                       </div>
                       <div class="col-md-2">
@@ -369,31 +376,31 @@
                           <select
                             class="form-control select2 select2-danger"
                             data-dropdown-css-class="select2-danger"
-                            name="id_proveedord"
-                            id="id_proveedodr"
+                            name="id_doc"
+                            id="id_doc"
                           ></select>
                         </div>
                       </div>
-                      <div class="col-md-1">
+                      <div class="col-md-1" id="div_cuota" style="display: none;">
                         <label>Cuota</label>
 
                         <div class="input-group">
                           <input
                           type="text"
-                          id="usu_nombdre"
-                          name="usu_nombrde"
+                          id="cuota"
+                          name="cuota"
                           class="form-control"                         
                         />
                         </div>
                       </div>
-                      <div class="col-md-2">
+                      <div class="col-md-2" id="div_intervalo" style="display: none;">
                         <label>Intervalo</label>
 
                         <div class="input-group">
                           <input
                           type="text"
-                          id="usu_nombdrde"
-                          name="usu_nombrdde"
+                          id="intervalo"
+                          name="intervalo"
                           class="form-control"                         
                         />
                         </div>
@@ -401,16 +408,7 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <div class="box-footer pull-right">
-                      <button
-                        type="button"
-                        class="btn btn-info"
-                        data-toggle="modal"
-                        data-target="#myModal"
-                      >
-                        <i class="fa fa-plus"></i> Agregar Articulo
-                      </button>
-                    </div>
+                    
                     <br />
                     <div class="col-12">
                       <div class="card">
@@ -428,6 +426,10 @@
                                 <th>Articulo</th>
                                 <th>Cantidad</th>
                                 <th>Precio</th>
+                                <th>Subtotal</th>
+                                <th>Exenta</th>
+                                <th>GRAV. 5%</th>
+                                <th>GRAV. 10%</th>
 
                                 <th style="width: 3%">
                                   <img
@@ -446,15 +448,28 @@
                     </div>
                     <div class="card-body">
                       <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                           <label></label>
 
-                          <div class="input-group"></div>
+                          <div class="input-group">
+                           
+                          </div>
+                        </div>
+                        
+                        
+                        <div class="col-md-3">
+                          <label></label>
+
+                          <div class="input-group">
+                            
+                          </div>
                         </div>
                         <div class="col-md-3">
                           <label></label>
 
-                          <div class="input-group"></div>
+                          <div class="input-group">
+                            
+                          </div>
                         </div>
                         <div class="col-md-3">
                           <label>Total</label>

@@ -22,6 +22,10 @@ public class OrdenDTO {
     private Integer det_precio;
     private List<OrdenDTO> lista_articulo;
     private Integer bandera;
+    private Integer exenta;
+    private Integer iva5;
+    private Integer iva10;
+      private String proveedor;
 
     public Integer getId_orden() {
         return id_orden;
@@ -149,6 +153,38 @@ public class OrdenDTO {
 
     public void setArt_descri(String art_descri) {
         this.art_descri = art_descri;
+    }
+
+    public Integer getExenta() {
+        return exenta;
+    }
+
+    public void setExenta(Integer exenta) {
+        this.exenta = exenta;
+    }
+
+    public Integer getIva5() {
+        return iva5;
+    }
+
+    public void setIva5(Integer iva5) {
+        this.iva5 = iva5;
+    }
+
+    public Integer getIva10() {
+        return iva10;
+    }
+
+    public void setIva10(Integer iva10) {
+        this.iva10 = iva10;
+    }
+
+    public String getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(String proveedor) {
+        this.proveedor = proveedor;
     }
 
     

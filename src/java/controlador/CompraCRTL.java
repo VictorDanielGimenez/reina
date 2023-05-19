@@ -138,6 +138,19 @@ public class CompraCRTL extends HttpServlet {
                     out.close();
                 }
                 break;
+                case 8:                
+                //Cargar Tabla
+               response.setContentType("application/json");//            
+                String datadoc = gson.toJson(CompraDAO.seleccionarDocumento());
+                if (datadoc != null) {                     
+                    //enviar al js la cadena               
+                    System.out.println("data " + datadoc);
+                    out.println(datadoc);
+                } else {
+                    //enviar alguna respuesta para indicar error
+                    out.println("ERROR");
+                }
+                break;
             default:
                 throw new AssertionError();
         }

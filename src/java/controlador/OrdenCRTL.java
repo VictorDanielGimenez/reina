@@ -88,7 +88,7 @@ public class OrdenCRTL extends HttpServlet {
                 }
                 break;
             case 4:
-                String json = gson.toJson(OrdenDAO.seleccionarSegunId(OrdenDTO));
+                String json = gson.toJson(OrdenDAO.seleccionarSegunFiltro(OrdenDTO));
                 if (json != null) {
                     System.out.println("Json " + json);
                     response.setContentType("application/json");
@@ -137,6 +137,32 @@ public class OrdenCRTL extends HttpServlet {
                     out.close();
                 }
                 break;
+                 case 8:
+                String jsonsda = gson.toJson(OrdenDAO.DetalleOrden(OrdenDTO));
+                if (jsonsda != null) {
+                    System.out.println("Json " + jsonsda);
+                    response.setContentType("application/json");
+                    out.println("[" + jsonsda + "]");
+                    out.close();
+                } else {
+                    out.println("");
+                    out.close();
+                }
+                break;
+                case 9:                
+                //Cargar Tabla
+               response.setContentType("application/json");//            
+                String ds = gson.toJson(OrdenDAO.OrdenPendientes());
+                if (ds != null) {                     
+                    //enviar al js la cadena               
+                    System.out.println("data " + ds);
+                    out.println(ds);
+                } else {
+                    //enviar alguna respuesta para indicar error
+                    out.println("ERROR");
+                }
+                break;
+                
             default:
                 throw new AssertionError();
         }

@@ -88,6 +88,28 @@ public class CompraDAO implements CompraINT {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
+    @Override
+    public List<CompraDTO> seleccionarDocumento() {
+        try {
+            List<CompraDTO> listadoc;
+            CompraDTO dto;
+            sql = "SELECT `id_tipodoc`,`tipo_decri` FROM `tipo_documento`";
+            ps = conexion.getConnection().prepareStatement(sql);
+            rs = ps.executeQuery();
+            listadoc = new ArrayList<>();
+            while (rs.next()) {
+                dto = new CompraDTO();
+                dto.setId_tipodoc(rs.getInt("id_tipodoc"));
+                dto.setTipo_decri(rs.getString("tipo_decri"));                      
+                listadoc.add(dto);
+            }
+            return listadoc;
+        } catch (SQLException ex) {
+            msg = ex.getMessage();
+            return null;
+        }
+    }
+
     
 
 }

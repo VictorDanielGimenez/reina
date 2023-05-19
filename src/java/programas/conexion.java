@@ -18,7 +18,7 @@ public class conexion {
         String nombreBD = "reina";
         String puertoBD = "3306";
         String usuarioBD = "root";
-        String claveBD = "";
+        String claveBD = "123";
         String controlador = "com.mysql.cj.jdbc.Driver";
         
         String url = "jdbc:"+motorBD+"://"+host+"/"+nombreBD;
