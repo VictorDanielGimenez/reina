@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
 public class DepositoDAO implements DepositoINT {
 
@@ -114,6 +115,17 @@ public class DepositoDAO implements DepositoINT {
             msg = ex.getMessage();
             return null;
         }
+    }
+
+
+    @Override
+    public String generarPDFSegunParametro(DepositoDTO dto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String generarPDF(HttpServletRequest reques) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

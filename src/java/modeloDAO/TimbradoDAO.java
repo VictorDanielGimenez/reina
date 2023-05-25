@@ -12,6 +12,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
 public class TimbradoDAO implements TimbradoINT {
 
@@ -150,5 +151,15 @@ public class TimbradoDAO implements TimbradoINT {
             msg = ex.getMessage();
             return null;
         }
+    }
+
+    @Override
+    public String generarPDF(HttpServletRequest reques) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String generarPDFSegunParametro(TimbradoDTO dto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

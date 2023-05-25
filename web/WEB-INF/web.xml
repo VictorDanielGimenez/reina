@@ -48,6 +48,10 @@
         <servlet-name>OrdenCRTL</servlet-name>
         <servlet-class>controlador.OrdenCRTL</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>pdfCRTL</servlet-name>
+        <servlet-class>controlador.pdfCRTL</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AccesoCRTL</servlet-name>
         <url-pattern>/AccesoCRTL</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>OrdenCRTL</servlet-name>
         <url-pattern>/OrdenCRTL</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pdfCRTL</servlet-name>
+        <url-pattern>/pdfCRTL</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

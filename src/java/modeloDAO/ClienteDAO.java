@@ -1,8 +1,18 @@
 package modeloDAO;
 
+import com.lowagie.text.Element;
+import com.lowagie.text.Font;
+import com.lowagie.text.FontFactory;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.pdf.PdfPCell;
+import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfWriter;
 import modeloDTO.ClienteDTO;
 import programas.conexion;
 import interfaces.ClienteINT;
+import java.awt.Color;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
 
 public class ClienteDAO implements ClienteINT {
 
@@ -136,6 +147,149 @@ public class ClienteDAO implements ClienteINT {
             msg = ex.getMessage();
             return null;
         }
+    }
+
+    @Override
+     public String generarPDF(HttpServletRequest request) {
+        List<ClienteDTO> lista = seleccionarTodos();
+        String serverPath = request.getServletContext().getRealPath("/");
+        String ruta = serverPath + "pdf/reporteCliente.pdf";
+        String route = "pdf/reporteCliente.pdf";
+
+        try {
+            com.lowagie.text.Document documento = new com.lowagie.text.Document();
+            try {
+                File file = new File(ruta);
+                file.getParentFile().mkdirs();
+
+                PdfWriter.getInstance(documento, new FileOutputStream(file));
+            } catch (Exception ex) {
+                Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            documento.open();
+
+            // Crear una fuente
+            Font fontTitle = FontFactory.getFont(FontFactory.HELVETICA, 20, Font.BOLD);
+
+            // Usar la fuente al crear los párrafos
+            Paragraph title = new Paragraph("Reporte de Clientes", fontTitle);
+            title.setAlignment(Paragraph.ALIGN_CENTER);
+            documento.add(title);
+
+            documento.add(new Paragraph("\n"));
+            PdfPTable tabla = new PdfPTable(7);
+
+            // Crear una fuente
+            Font font = FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD);
+
+            // Crear celdas para los encabezados de la tabla
+            PdfPCell cell1 = new PdfPCell(new Paragraph("ID", font));
+            PdfPCell cell2 = new PdfPCell(new Paragraph("Nombre y Apellido", font));
+            PdfPCell cell3 = new PdfPCell(new Paragraph("R.U", font));
+            PdfPCell cell4 = new PdfPCell(new Paragraph("C.I", font));
+            PdfPCell cell5 = new PdfPCell(new Paragraph("Dirección", font));
+            PdfPCell cell6 = new PdfPCell(new Paragraph("Teléfono", font));
+            PdfPCell cell7 = new PdfPCell(new Paragraph("Ciudad", font));
+
+            // Aplicar estilo a las celdas
+            cell1.setBorderColor(Color.BLACK);
+            cell1.setBackgroundColor(Color.GRAY);
+            cell1.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+            cell2.setBorderColor(Color.BLACK);
+            cell2.setBackgroundColor(Color.GRAY);
+            cell2.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+            cell3.setBorderColor(Color.BLACK);
+            cell3.setBackgroundColor(Color.GRAY);
+            cell3.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+            cell4.setBorderColor(Color.BLACK);
+            cell4.setBackgroundColor(Color.GRAY);
+            cell4.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+            cell5.setBorderColor(Color.BLACK);
+            cell5.setBackgroundColor(Color.GRAY);
+            cell5.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+            cell6.setBorderColor(Color.BLACK);
+            cell6.setBackgroundColor(Color.GRAY);
+            cell6.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+            cell7.setBorderColor(Color.BLACK);
+            cell7.setBackgroundColor(Color.GRAY);
+            cell7.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+            // Agregar las celdas a la tabla
+            tabla.addCell(cell1);
+            tabla.addCell(cell2);
+            tabla.addCell(cell3);
+            tabla.addCell(cell4);
+            tabla.addCell(cell5);
+            tabla.addCell(cell6);
+            tabla.addCell(cell7);
+
+            // Crear una fuente para los datos
+            Font fontData = FontFactory.getFont(FontFactory.HELVETICA, 12);
+
+            for (ClienteDTO dto : lista) {
+                PdfPCell cellData1 = new PdfPCell(new Paragraph(String.valueOf(dto.getId_cliente()), fontData));
+                PdfPCell cellData2 = new PdfPCell(new Paragraph(dto.getCli_nombre(), fontData));
+                PdfPCell cellData3 = new PdfPCell(new Paragraph(dto.getCli_ruc(), fontData));
+                PdfPCell cellData4 = new PdfPCell(new Paragraph(dto.getCli_ci(), fontData));
+                PdfPCell cellData5 = new PdfPCell(new Paragraph(dto.getCli_direc(), fontData));
+                PdfPCell cellData6 = new PdfPCell(new Paragraph(dto.getCli_telef(), fontData));
+                PdfPCell cellData7 = new PdfPCell(new Paragraph(dto.getCiu_descri(), fontData));
+
+                // Aplicar estilo a las celdas
+                cellData1.setBorderColor(Color.BLACK);
+                cellData1.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                cellData2.setBorderColor(Color.BLACK);
+                cellData2.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                cellData3.setBorderColor(Color.BLACK);
+                cellData3.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                cellData4.setBorderColor(Color.BLACK);
+                cellData4.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                cellData5.setBorderColor(Color.BLACK);
+                cellData5.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                cellData6.setBorderColor(Color.BLACK);
+                cellData6.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                cellData7.setBorderColor(Color.BLACK);
+                cellData7.setHorizontalAlignment(Element.ALIGN_CENTER);
+
+                // Agregar las celdas a la tabla
+                tabla.addCell(cellData1);
+                tabla.addCell(cellData2);
+                tabla.addCell(cellData3);
+                tabla.addCell(cellData4);
+                tabla.addCell(cellData5);
+                tabla.addCell(cellData6);
+                tabla.addCell(cellData7);
+            }
+
+            documento.add(tabla);
+
+            documento.close();
+
+        } catch (Exception e) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, e);
+            return null;
+        }
+
+        return route;
+    }
+
+
+    @Override
+    public String generarPDFSegunParametro(ClienteDTO dto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
    

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
 
 public class ProveedorDAO implements ProveedorINT {
 
@@ -138,6 +139,16 @@ public class ProveedorDAO implements ProveedorINT {
             msg = ex.getMessage();
             return null;
         }
+    }
+
+    @Override
+    public String generarPDF(HttpServletRequest reques) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String generarPDFSegunParametro(ProveedorDTO dto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
    

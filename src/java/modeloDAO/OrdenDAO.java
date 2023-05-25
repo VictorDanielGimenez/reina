@@ -12,6 +12,7 @@ import java.sql.Date;
 import java.sql.Statement;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import javax.servlet.http.HttpServletRequest;
 import modeloDTO.ArticuloDTO;
 import programas.Genericos_fecha;
 
@@ -295,6 +296,16 @@ public class OrdenDAO implements OrdenINT {
             msg = ex.getMessage();
             return null;
         }
+    }
+
+    @Override
+    public String generarPDF(HttpServletRequest reques) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String generarPDFSegunParametro(OrdenDTO dto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

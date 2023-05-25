@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import interfaces.ArticuloINT;
 import java.sql.Statement;
+import javax.servlet.http.HttpServletRequest;
 
 public class ArticuloDAO implements ArticuloINT {
 
@@ -188,6 +189,17 @@ public class ArticuloDAO implements ArticuloINT {
 
     @Override
     public ArticuloDTO seleccionarSegunId(ArticuloDTO dto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+   
+    @Override
+    public String generarPDFSegunParametro(ArticuloDTO dto) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public String generarPDF(HttpServletRequest reques) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
