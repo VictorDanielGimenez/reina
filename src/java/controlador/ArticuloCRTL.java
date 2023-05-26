@@ -114,6 +114,18 @@ public class ArticuloCRTL extends HttpServlet {
                     out.println("ERROR");
                 }
                 break;
+                case 6:                
+                //traer la ruta del pdf
+                String ruta = ArticuloDAO.generarPDF(request);
+                if (ruta != null) {
+                    //enviar al js la cadena               
+                    System.out.println("ruta " + ruta);
+                    out.println(ruta);
+                } else {
+                    //enviar alguna respuesta para indicar error
+                    out.println("ERROR");
+                }                
+                break;
             default:
                 throw new AssertionError();
         }

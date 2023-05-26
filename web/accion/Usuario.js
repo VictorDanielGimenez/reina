@@ -262,4 +262,22 @@ eliminar = function(codigo) {
   });
 
 
-}   
+}; 
+
+generarPDF = function() {
+  var xhr = new XMLHttpRequest(), //
+  method = "POST",
+  url = "/reina/UsuarioCRTL";
+  xhr.open(method, url, true);
+  xhr.onreadystatechange = function () {
+    //la funcion devuelve una url
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      var url = xhr.responseText;
+      //redireccionamos con javascript
+      window.open('../'+url, '_blank');
+      console.log(url);
+    }
+     
+  };
+  xhr.send(JSON.stringify(datos = {bandera: 7}));
+};

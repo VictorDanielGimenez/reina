@@ -319,7 +319,7 @@ $(function () {
         console.log(url);
       }
        
-    }
+    };
     xhr.send(JSON.stringify(datos = {bandera: 6}));
-  }
+  };
 });

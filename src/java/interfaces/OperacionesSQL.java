@@ -17,7 +17,7 @@ public interface OperacionesSQL<T> {
 
     public T seleccionarSegunId(T dto);
     //generar pdf y devolver ruta
-    public String generarPDF(HttpServletRequest reques);
+    public String generarPDF(HttpServletRequest request);
     //generar pdf segun parametro y devolver ruta
     public String generarPDFSegunParametro(T dto);
     

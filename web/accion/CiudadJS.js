@@ -194,7 +194,7 @@ eliminar = function(codigo) {
   });
 
 
-}   
+};  
 
 generarPDF = function() {
   var xhr = new XMLHttpRequest(), //
@@ -210,9 +210,9 @@ generarPDF = function() {
       console.log(url);
     }
      
-  }
+  };
   xhr.send(JSON.stringify(datos = {bandera: 6}));
-}
+};
 
 
 });

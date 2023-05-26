@@ -124,6 +124,18 @@ public class UsuarioCRTL extends HttpServlet {
                     //enviar alguna respuesta para indicar error
                 }
                 break;
+                case 7:                
+                //traer la ruta del pdf
+                String ruta = usuarioDAO.generarPDF(request);
+                if (ruta != null) {
+                    //enviar al js la cadena               
+                    System.out.println("ruta " + ruta);
+                    out.println(ruta);
+                } else {
+                    //enviar alguna respuesta para indicar error
+                    out.println("ERROR");
+                }                
+                break;
             default:
                 throw new AssertionError();
         }
